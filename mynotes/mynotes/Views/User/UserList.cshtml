@@ -1,0 +1,33 @@
+﻿@model List<mynotes.Models.Users>
+
+<h2>UserList</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>FirstName</th>
+            <th>SurName</th>
+            @* <th>UserName</th> *@
+            <th>MailAddress</th>
+            @* <th>Actions</th> *@
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.FirstName</td>
+                <td>@user.SurName</td>
+                @* <td>@user.UserName</td> *@
+                <td>@user.MailAddress</td>
+                @* <td>@user.Password</td> *@
+                <td>
+                    <form asp-action="UserDelete" method="post">
+                        <input type="hidden" name="userId" value="@user.UserId" />
+                        <button type="submit" class="btn btn-danger">Sil</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

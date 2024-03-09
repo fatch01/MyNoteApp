@@ -1,0 +1,43 @@
+﻿@model mynotes.Models.UserEditRequestModel
+
+<h2>Kullanıcı Bilgilerini Güncelle</h2>
+
+<form asp-action="UserEdit" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" name="UserId" value="@Model.UserId" />
+    <input type="hidden" name="AccountId" value="@Model.AccountId" />
+
+    <div class="form-group">
+        <label asp-for="FirstName" class="control-label"></label>
+        <input name="FirstName" value="@Model.FirstName" class="form-control" />
+        <span asp-validation-for="FirstName" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="SurName" class="control-label"></label>
+        <input name="SurName" value="@Model.SurName" class="form-control" />
+        <span asp-validation-for="SurName" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="UserName" class="control-label"></label>
+        <input name="UserName" value="@Model.UserName" class="form-control" />
+        <span asp-validation-for="UserName" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="MailAddress" class="control-label"></label>
+        <input name="MailAddress" value="@Model.MailAddress" class="form-control" />
+        <span asp-validation-for="MailAddress" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Password" class="control-label"></label>
+        <input name="Password" value="@Model.Password" class="form-control" />
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Güncelle" class="btn btn-primary" />
+    </div>
+</form>

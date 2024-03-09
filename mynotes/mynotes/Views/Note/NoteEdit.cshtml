@@ -1,0 +1,12 @@
+﻿@model mynotes.Models.Notes
+
+<h1>Note Edit sayfası</h1>
+
+<form asp-controller="Note" asp-action="NoteEdit" method="post">
+    <input type="hidden" name="NotesId" value="@Model.NotesId" />
+    <input type="hidden" name="AccountId" value="@Model.AccountId" />
+    <label>Note Description:</label>
+    <input type="text" name="Description" value="@Model.Description" />
+    <br />
+    <button type="submit">Güncelle</button>
+</form>

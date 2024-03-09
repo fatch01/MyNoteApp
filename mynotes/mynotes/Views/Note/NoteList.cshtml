@@ -1,0 +1,22 @@
+﻿@model List<mynotes.Models.Notes>
+
+<h1>Note List sayfası</h1>
+
+<ul>
+    @foreach (var note in Model)
+    {
+        <li>
+            <div>Note Description: @note.Description</div>
+            <div>Note Date: @note.CreateTime.ToString("dd/MM/yyyy HH:mm:ss")</div>
+            <form asp-controller="Note" asp-action="NoteEdit" method="get">
+                <input type="hidden" name="noteId" value="@note.NotesId" />
+                <button type="submit">Güncelle</button>
+            </form>
+            <form asp-controller="Note" asp-action="NoteDelete" method="post">
+                <input type="hidden" name="accountId" value="@note.AccountId" />
+                <input type="hidden" name="noteId" value="@note.NotesId" />
+                <button type="submit" onclick="return confirm('Bu notu silmek istediğinizden emin misiniz?')">Sil</button>
+            </form>
+        </li>
+    }
+</ul>

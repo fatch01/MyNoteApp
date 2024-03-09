@@ -1,0 +1,13 @@
+﻿@{ 
+    ViewData["Title"] = "User Menu sayfası";
+    
+}
+
+<div class="text-center">
+    <h1 class="display-4">Kullanıcı Menüsü</h1>
+    <div>
+        <a asp-action="NoteAdd" asp-controller="Note" asp-route-accountId="@ViewBag.AccountId">Not Ekle</a> |
+        <a asp-action="NoteList" asp-controller="Note" asp-route-accountId="@ViewBag.AccountId">Notları Listele</a> |
+        <a asp-action="UserEdit" asp-controller="User" asp-route-accountId="@ViewBag.AccountId">Kullanıcıyı Düzenle</a>
+    </div>
+</div>

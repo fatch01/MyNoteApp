@@ -1,0 +1,16 @@
+﻿@model mynotes.Models.Notes
+
+<h1>Delete Note</h1>
+
+<p>Aşağıdaki notu silmek istediğinizden emin misiniz?</p>
+<div>
+    <strong>Note Description:</strong> @Model.Description <br />
+    <strong>Note Date:</strong> @Model.CreateTime.ToString("dd/MM/yyyy HH:mm:ss")
+</div>
+
+<form asp-controller="Note" asp-action="NoteDelete" method="post">
+    <input type="hidden" name="accountId" value="@Model.AccountId" />
+    <input type="hidden" name="noteId" value="@Model.NotesId" />
+    <button type="submit">Sil</button>
+    <a href="javascript:history.back()">İptal Et</a>
+</form>

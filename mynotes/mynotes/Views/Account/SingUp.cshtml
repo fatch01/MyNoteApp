@@ -1,0 +1,51 @@
+﻿@model SingupViewModel
+@{
+    ViewData["Title"] = "SingUp";
+}
+
+<div class="row">
+    <div class="col-4 offset-4">
+        <h1 class="display-4 border-bottom text-center pb-2">@ViewData["Title"]</h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-4 offset-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger small"></div>
+            <div class="form-group mb-3">
+                <label asp-for="FirstName" class="form-label">FirstName</label>
+                <input asp-for="FirstName" class="form-control" placeholder="FirstName" />
+                <span asp-validation-for="FirstName" class="text-danger small"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="SurName" class="form-label">SurName</label>
+                <input asp-for="SurName" class="form-control" placeholder="SurName" />
+                <span asp-validation-for="SurName" class="text-danger small"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="MailAddress" class="form-label">MailAddress</label>
+                <input asp-for="MailAddress" class="form-control" placeholder="MailAddress" />
+                <span asp-validation-for="MailAddress" class="text-danger small"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="UserName" class="form-label">UserName</label>
+                <input asp-for="UserName" class="form-control" placeholder="UserName" />
+                <span asp-validation-for="UserName" class="text-danger small"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="Password" class="form-label">Password</label>
+                <input asp-for="Password" class="form-control" placeholder="P@ssW0rd!" />
+                <span asp-validation-for="Password" class="text-danger small"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="RePassword" class="form-label">Re-Password</label>
+                <input asp-for="RePassword" class="form-control" placeholder="P@ssW0rd!" />
+                <span asp-validation-for="RePassword" class="text-danger small"></span>
+            </div>
+            <div class="form-group d-grid mb-3">
+                <button type="submit" class="btn btn-primary d-block">SingUp</button>
+            </div>
+        </form>
+    </div>
+</div>
