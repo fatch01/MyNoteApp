@@ -1,4 +1,12 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor Accessor
+
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -19,23 +27,30 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                        @* @if ((string)ViewBag.IsLoggedIn == "true")
+
+                        @if (@Accessor.HttpContext.Session.GetString("IsLoggedIn") == "false")
                         {
-                            <li>
-                                <a href="@Url.Action("Logout", "Account")">
-                                    span>Logout</span>
-                                </a>
+                            <li class="nav-item ms-auto">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login">Login</a>
                             </li>
-                        } *@
-                        <li class="nav-item ms-auto">
+
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="SingUp">SingUp</a>
+                            </li>
+                        }
+                       
+                       @*  <li class="nav-item ms-auto">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Logout">Logout</a>
-                        </li>
-                        <li class="nav-item ms-auto">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login">Login</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="SingUp">SingUp</a>
-                        </li>
+                        </li> *@
+
+                        @if (@Accessor.HttpContext.Session.GetString("IsLoggedIn") == "true")
+                        {
+                            <h6>Hoşgeldin @Accessor.HttpContext.Session.GetString("Username") !!</h6>
+                            <li>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login">Logout</a>
+                            </li>
+                        }
+                      
                     </ul>
                 </div>
             </div>

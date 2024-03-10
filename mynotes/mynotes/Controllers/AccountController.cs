@@ -30,7 +30,11 @@ namespace mynotes.Controllers
                     if (user != null)
                     {
                         HttpContext.Session.SetString("IsLoggedIn", "true");
+                        HttpContext.Session.SetString("Username", account.UserName);
+
                         //string control = HttpContext.Session.GetString("IsLoggedIn");
+                        //ViewBag.IsLoggedId = "true";
+                        //ViewBag.FirstName = user.FirstName;
                         if (user.IsAdmin == 1)
                         {
                             user.IsAdmin = 1;

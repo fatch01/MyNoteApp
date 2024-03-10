@@ -15,6 +15,7 @@ namespace mynotes.Controllers
 
         public IActionResult Index()
         {
+            HttpContext.Session.SetString("IsLoggedIn", "false");
             return View();
         }
 

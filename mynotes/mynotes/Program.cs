@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using mynotes.Database;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,6 +15,7 @@ builder.Services.AddDbContext<DatabaseContext>(opts =>
 
 // Session için gerekli olan Distributed Memory Cache servisini ekleyin
 builder.Services.AddDistributedMemoryCache();
+builder.Services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
 // Session ayarlarýný ekleyin
 builder.Services.AddSession(options =>
